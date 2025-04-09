@@ -24,4 +24,22 @@ public class MainActivityInstrumentedTest {
     @Rule
     public ActivityTestRule<MainActivity> activityRule =
             new ActivityTestRule<>(MainActivity.class); 
+
+            @Test
+    public void testTextViewContent() {
+        onView(withId(R.id.textToBeChanged))
+                .check(matches(withText("Hello World"))); 
+    }
+
+    @Test
+    public void testChangeTextButton() {
+        
+        onView(withId(R.id.editTextUserInput)) 
+                .perform(typeText("123"));
+
+        onView(withId(R.id.changeTextBt)) 
+                .perform(click());
+        onView(withId(R.id.textToBeChanged))
+                .check(matches(withText("123")));
+    }
 }
