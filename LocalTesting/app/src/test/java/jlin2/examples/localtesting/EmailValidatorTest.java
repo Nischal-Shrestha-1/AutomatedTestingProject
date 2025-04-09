@@ -23,5 +23,23 @@ public class EmailValidatorTest {
     public void testInvalidEmail_DoubleDots() {
         assertFalse(EmailValidator.isValidEmail("123@abc..com"));
     }
-    
+    @Test
+    public void testInvalidEmail_NoUsername() {
+        assertFalse(EmailValidator.isValidEmail("@abc.com"));
+    }
+
+    @Test
+    public void testInvalidEmail_NoDomainName() {
+        assertFalse(EmailValidator.isValidEmail("testing123"));
+    }
+
+    @Test
+    public void testInvalidEmail_EmptyString() {
+        assertFalse(EmailValidator.isValidEmail(""));
+    }
+
+    @Test
+    public void testInvalidEmail_Null() {
+        assertFalse(EmailValidator.isValidEmail(null));
+    }
 }
