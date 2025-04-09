@@ -41,6 +41,7 @@ class EmailValidator : TextWatcher {
          * @param email    The email to validate.
          * @return `true`  if the input is a valid email, `false` otherwise.
          */
+        @JvmStatic
         fun isValidEmail(email: CharSequence?): Boolean {
             return email != null && EMAIL_PATTERN.matcher(email).matches()
         }
